@@ -18,19 +18,25 @@ Public Class FrmMain
         tipus = CL_WIIMOTE.WII_EVENT_BOTO
         If valor = "HOME" Then
             SendKeys.SendWait("^{ESC}")
+            Threading.Thread.Sleep(2000)
         Else
 
         End If
 
-        'With p_wiimote.COMANDAMENT.WiimoteState.IRState
-        '    lbIR0.Text = "IR0 : (" & .IRSensors(0).RawPosition.X.ToString & "," & .IRSensors(0).RawPosition.Y.ToString & ") - " & .IRSensors(0).Size
-        '    lbIR1.Text = "IR1 : (" & .IRSensors(1).RawPosition.X.ToString & "," & .IRSensors(1).RawPosition.Y.ToString & ") - " & .IRSensors(1).Size
-        '    lbIR2.Text = "IR2 : (" & .IRSensors(2).RawPosition.X.ToString & "," & .IRSensors(2).RawPosition.Y.ToString & ") - " & .IRSensors(2).Size
-        '    lbIR3.Text = "IR3 : (" & .IRSensors(3).RawPosition.X.ToString & "," & .IRSensors(3).RawPosition.Y.ToString & ") - " & .IRSensors(3).Size
-        '    .Mode = WiimoteLib.IRMode.Extended
+        With p_wiimote.COMANDAMENT.WiimoteState.IRState
+            Console.Write("IR0 : (" & .IRSensors(0).RawPosition.X.ToString & "," & .IRSensors(0).RawPosition.Y.ToString & ") - " & .IRSensors(0).Size)
+            Console.Write("IR1 : (" & .IRSensors(1).RawPosition.X.ToString & "," & .IRSensors(1).RawPosition.Y.ToString & ") - " & .IRSensors(1).Size)
+            Console.Write("IR2 : (" & .IRSensors(2).RawPosition.X.ToString & "," & .IRSensors(2).RawPosition.Y.ToString & ") - " & .IRSensors(2).Size)
+            Console.Write("IR3 : (" & .IRSensors(3).RawPosition.X.ToString & "," & .IRSensors(3).RawPosition.Y.ToString & ") - " & .IRSensors(3).Size)
+            .Mode = WiimoteLib.IRMode.Extended
 
-        '    lbMidPoint.Text = "(" & .RawMidpoint.X.ToString & "," & .RawMidpoint.Y.ToString & ")"
-        'End With
+            'lbMidPoint.Text = "(" & .RawMidpoint.X.ToString & "," & .RawMidpoint.Y.ToString & ")"
+
+            Console.WriteLine("X: " + .RawMidpoint.X)
+
+            Cursor.Position = New Point(Me.Width - .RawMidpoint.X, .RawMidpoint.Y)
+        End With
+
 
         'With p_wiimote.COMANDAMENT.WiimoteState.AccelState
         '    lbAccel.Text = "Accel·leròmetre : X= " & .Values.X.ToString() & ", Y= " & .Values.Y.ToString() & ", Z= " & .Values.Z.ToString()
