@@ -31,6 +31,7 @@ Partial Class FrmMain
         Me.ClientSize = New System.Drawing.Size(301, 266)
         Me.Name = "FrmMain"
         Me.Text = "Form1"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub

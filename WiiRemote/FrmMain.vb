@@ -13,7 +13,8 @@ Public Class FrmMain
         End If
     End Sub
     Private Sub gestio_event_wiimote(ByVal tipus As String, ByVal valor As Object) Handles p_wiimote.event_del_wiimote
-
+        Dim x_cursor As Double
+        Dim y_cursor As Double
         'lbBateria.Text = "nivell de bateria " & Math.Round(p_wiimote.COMANDAMENT.WiimoteState.Battery, 2) & " de 100"
         tipus = CL_WIIMOTE.WII_EVENT_BOTO
         If valor = "HOME" Then
@@ -32,9 +33,10 @@ Public Class FrmMain
 
             'lbMidPoint.Text = "(" & .RawMidpoint.X.ToString & "," & .RawMidpoint.Y.ToString & ")"
 
-            Console.WriteLine("X: " + .RawMidpoint.X)
 
-            Cursor.Position = New Point(Me.Width - .RawMidpoint.X, .RawMidpoint.Y)
+            x_cursor = (.RawMidpoint.X / 1024) * 1366
+            y_cursor = (.RawMidpoint.Y / 640) * 768
+            Cursor.Position = New Point(1366 - x_cursor, y_cursor)
         End With
 
 
