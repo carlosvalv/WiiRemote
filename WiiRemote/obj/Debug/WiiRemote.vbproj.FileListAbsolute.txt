@@ -1,0 +1,12 @@
+C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\bin\Debug\WiiRemote.exe.config
+C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\bin\Debug\WiiRemote.exe
+C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\bin\Debug\WiiRemote.pdb
+C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\bin\Debug\WiiRemote.xml
+C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\obj\Debug\WiiRemote.vbprojResolveAssemblyReference.cache
+C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\obj\Debug\WiiRemote.FrmMain.resources
+C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\obj\Debug\WiiRemote.Resources.resources
+C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\obj\Debug\WiiRemote.vbproj.GenerateResource.Cache
+C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\obj\Debug\WiiRemote.vbproj.CoreCompileInputs.cache
+C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\obj\Debug\WiiRemote.exe
+C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\obj\Debug\WiiRemote.xml
+C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\obj\Debug\WiiRemote.pdb
