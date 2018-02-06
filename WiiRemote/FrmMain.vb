@@ -37,8 +37,8 @@ Public Class FrmMain
         Dim x_cursor As Double
         Dim y_cursor As Double
         tipus = CL_WIIMOTE.WII_EVENT_BOTO
-        Dim gestionarb As Task = GestionarBotons(valor)
-
+        'Dim gestionarb As Task = GestionarBotons(valor)
+        Dim returnedTaskTResult As Task(Of Integer) = GestionarBotons(valor)
         GestionarLedsBateria()
 
 
@@ -58,7 +58,8 @@ Public Class FrmMain
 
     End Sub
 
-    Async Function GestionarBotons(ByVal result As String) As Task
+    Async Function GestionarBotons(ByVal result As String) As Task(Of Integer)
+
         Select Case result
             Case "AMUNT"
                 SendKeys.SendWait("{UP}")
