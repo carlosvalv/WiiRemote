@@ -1,12 +1,16 @@
-﻿Imports ESPAI_NOMS_WIIMOTE
-Imports M
+﻿Imports System.Runtime.InteropServices
+Imports ESPAI_NOMS_WIIMOTE
+
 
 Public Class FrmMain
+    <DllImport("user32.dll")>
+    Private Shared Sub mouse_event(dwFlags As UInteger, dx As UInteger, dy As UInteger, dwData As UInteger, dwExtraInfo As Integer)
+    End Sub
     Dim screenWidth As Integer = Screen.PrimaryScreen.Bounds.Width
     Dim screenHeight As Integer = Screen.PrimaryScreen.Bounds.Height
+
     Public Declare Auto Function SetCursorPos Lib "User32.dll" (ByVal X As Integer, ByVal Y As Integer) As Long
     Public Declare Auto Function GetCursorPos Lib "User32.dll" (ByRef lpPoint As Point) As Long
-    Public Declare Sub mouse_event Lib "user32" Alias "mouse_event" (ByVal dwFlags As Long, ByVal dx As Long, ByVal dy As Long, ByVal cButtons As Long, ByVal dwExtraInfo As Long)
 
     ' Click esquerre '
     Public Const MOUSEEVENTF_LEFTDOWN = &H2
@@ -32,19 +36,9 @@ Public Class FrmMain
     Private Sub gestio_event_wiimote(ByVal tipus As String, ByVal valor As Object) Handles p_wiimote.event_del_wiimote
         Dim x_cursor As Double
         Dim y_cursor As Double
-
         tipus = CL_WIIMOTE.WII_EVENT_BOTO
-        GestionarBotons(valor)
+        Dim gestionarb As Task = GestionarBotons(valor)
 
-        ' Clicks del mouse '
-        Try
-            '    If valor = "B" Then
-            '        mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, 0)
-            '        mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0)
-            '    End If
-        Catch ex As Exception
-
-        End Try
         GestionarLedsBateria()
 
 
@@ -55,7 +49,6 @@ Public Class FrmMain
             Console.Write("IR3 : (" & .IRSensors(3).RawPosition.X.ToString & "," & .IRSensors(3).RawPosition.Y.ToString & ") - " & .IRSensors(3).Size)
             .Mode = WiimoteLib.IRMode.Extended
 
-            'lbMidPoint.Text = "(" & .RawMidpoint.X.ToString & "," & .RawMidpoint.Y.ToString & ")"
 
 
             x_cursor = (.RawMidpoint.X / 1024) * 1366
@@ -65,32 +58,54 @@ Public Class FrmMain
 
     End Sub
 
-    Private Sub GestionarBotons(ByVal result As String)
+    Async Function GestionarBotons(ByVal result As String) As Task
         Select Case result
             Case "AMUNT"
                 SendKeys.SendWait("{UP}")
+                Threading.Thread.Sleep(1000)
+
             Case "AVALL"
                 SendKeys.SendWait("{DOWN}")
+                Threading.Thread.Sleep(1000)
+
             Case "DRETA"
                 SendKeys.SendWait("{RIGHT}")
+                Threading.Thread.Sleep(1000)
+
             Case "ESQUERRA"
                 SendKeys.SendWait("{LEFT}")
+                Threading.Thread.Sleep(1000)
+
             Case "MES"
                 SendKeys.SendWait("^{ADD}")
+                Threading.Thread.Sleep(1000)
+
             Case "MENYS"
                 SendKeys.SendWait("^{SUBTRACT}")
+                Threading.Thread.Sleep(1000)
+
             Case "HOME"
                 SendKeys.SendWait("^{ESC}")
+                Threading.Thread.Sleep(1000)
+
             Case "A"
-                '  mouse_event(&H2, 0, 0, 0, 0)
-                ' mouse_event(&H4, 0, 0, 0, 0)
+                mouse_event(&H2, 0, 0, 0, 0)
+
+                Threading.Thread.Sleep(1000)
+
+                mouse_event(&H4, 0, 0, 0, 0)
+            Case "B"
+                mouse_event(MOUSEEVENTF_RIGHTDOWN, 0, 0, 0, 0)
+                mouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0)
+                Threading.Thread.Sleep(1000)
+
 
         End Select
-        'Threading.Thread.Sleep(1000)
 
-    End Sub
 
-    Private Sub GestionarLedsBateria()
+    End Function
+
+    Async Sub GestionarLedsBateria()
         'bateria = Math.Round(p_wiimote.COMANDAMENT.WiimoteState.Battery, 2)
 
         If bateria > 0 And bateria <= 25 Then
