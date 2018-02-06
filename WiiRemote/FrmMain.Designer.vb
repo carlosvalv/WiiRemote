@@ -27,6 +27,9 @@ Partial Class FrmMain
         Me.Icon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.MenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.SortirtToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.bgWorker = New System.ComponentModel.BackgroundWorker()
+        Me.tmBateria = New System.Windows.Forms.Timer(Me.components)
+        Me.ModoAhorroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -34,20 +37,34 @@ Partial Class FrmMain
         '
         Me.Icon.ContextMenuStrip = Me.MenuStrip
         Me.Icon.Icon = CType(resources.GetObject("Icon.Icon"), System.Drawing.Icon)
-        Me.Icon.Text = "NotifyIcon1"
+        Me.Icon.Text = "WiiRemote"
         Me.Icon.Visible = True
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SortirtToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SortirtToolStripMenuItem, Me.ModoAhorroToolStripMenuItem})
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(103, 26)
+        Me.MenuStrip.Size = New System.Drawing.Size(153, 70)
         '
         'SortirtToolStripMenuItem
         '
         Me.SortirtToolStripMenuItem.Name = "SortirtToolStripMenuItem"
-        Me.SortirtToolStripMenuItem.Size = New System.Drawing.Size(102, 22)
+        Me.SortirtToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SortirtToolStripMenuItem.Text = "Sortir"
+        '
+        'bgWorker
+        '
+        Me.bgWorker.WorkerReportsProgress = True
+        Me.bgWorker.WorkerSupportsCancellation = True
+        '
+        'tmBateria
+        '
+        '
+        'ModoAhorroToolStripMenuItem
+        '
+        Me.ModoAhorroToolStripMenuItem.Name = "ModoAhorroToolStripMenuItem"
+        Me.ModoAhorroToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ModoAhorroToolStripMenuItem.Text = "Modo ahorro"
         '
         'FrmMain
         '
@@ -66,4 +83,7 @@ Partial Class FrmMain
     Friend WithEvents Icon As NotifyIcon
     Friend WithEvents MenuStrip As ContextMenuStrip
     Friend WithEvents SortirtToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents bgWorker As System.ComponentModel.BackgroundWorker
+    Friend WithEvents tmBateria As Timer
+    Friend WithEvents ModoAhorroToolStripMenuItem As ToolStripMenuItem
 End Class

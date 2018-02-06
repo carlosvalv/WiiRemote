@@ -28,3 +28,4 @@ C:\Users\Alejandro\Desktop\ASIX\NET\PRÀCTIQUES\7-WIIREMOTE\WiiRemote\WiiRemote\
 C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\bin\Debug\LLIBRERIA_WIIMOTE.pdb
 C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\bin\Debug\LLIBRERIA_WIIMOTE.xml
 C:\Users\usuario\Desktop\DAM3\NET\7-Wiiremote\WiiRemote\WiiRemote\bin\Debug\Gma.System.MouseKeyHook.dll
+C:\Users\Alejandro\Desktop\ASIX\NET\PRÀCTIQUES\7-WIIREMOTE\WiiRemote\WiiRemote\bin\Debug\Gma.System.MouseKeyHook.dll
